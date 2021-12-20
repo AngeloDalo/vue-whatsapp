@@ -234,7 +234,34 @@
 }
 
 .chat {
-    height: 83%;
-    background-image: url("img/download.jpg");
+    width: 100%;
+    height: 490px;
+    overflow: auto;
+    background-image: url("../img/download.jpg");
+}
+
+.text-bar {
+    width: 100%;
+    height: 56px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text-bar i:first {
+    width: 10%;
+    color: grey;
+}
+
+.text-bar input {
+    width: 80%;
+    border-style: none;
+    outline: none;
+    background-color:#ffffff;
+}
+
+.text-bar i:last-child {
+    width: 10%;
 }
 
