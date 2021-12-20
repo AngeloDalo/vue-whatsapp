@@ -137,3 +137,41 @@
 }
 
 /*PREVIEW-CHAT*/
+.preview-chat {
+    display: flex;
+    background-color: white;
+    padding: 0.5em 1.2em;
+}
+
+.preview-chat-avatar {
+    width: 20%;
+}
+
+.preview-chat-avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.preview-chat-name-message {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-chat-name {
+    font-weight: bold;
+}
+
+.preview-chat-message {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.preview-chat-date {
+    width: 40%;
+}
+
+.preview-chat-date span {
+    color: grey;
+    font-size: 0.8em;
+}
