@@ -106,6 +106,7 @@ i:hover {
 .icon-sound {
     width: 15%;
     height: 100%;
+    max-width: 3em;
     background-color: white;
     border-radius: 50%;
     position: relative;
