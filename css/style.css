@@ -24,3 +24,12 @@
 .container-app-chat {
     width: 70%;
 }
+
+.my-profile,
+.notification-sound,
+.search-users,
+.preview-chat,
+.contact,
+.chat {
+    width: 100%;
+}
