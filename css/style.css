@@ -34,10 +34,12 @@
     width: 100%;
 }
 
+/*MY PROFILE*/
 .my-profile {
     font-weight: bold;
     display: flex;
     align-items: center;
+    height: 3em;
 }
 
 .my-profile-avatar {
@@ -50,7 +52,13 @@
 }
 
 .my-profile-icons {
+    display: flex;
+    justify-content: flex-end;
     color: #b1b1b1;
+}
+
+.my-profile-icons i {
+    margin-right: 0.7em;
 }
 
 .my-profile-name {
@@ -59,4 +67,51 @@
 
 .my-profile-icons {
     width: 30%;
+}
+
+/*NOTIFICATION SOUND*/
+.notification-sound {
+    display: flex;
+    align-items: center;
+    background-color: #8edafc;
+    height: 4em;
+    padding: 0.5em;
+}
+
+.icon-sound {
+    width: 15%;
+    height: 100%;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.campana {
+    color: #8edafc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.text-sound {
+    width: 85%;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-sound-bold,
+.text-sound-underline {
+    font-size: 0.7em;
+    width: 100%;
+}
+
+.text-sound-bold {
+    font-weight: bold;
+}
+
+.text-sound-underline {
+    color: grey;
+    text-decoration: underline;
 }
