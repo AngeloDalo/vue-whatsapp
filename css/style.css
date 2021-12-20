@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+i:hover {
+    cursor: pointer;
+}
+
 .container {
     background: linear-gradient(to bottom, #009688 0%,#009688 30%, #009688 30%,#dbdbd2 30%,#dbdbd2 100%); /* W3C */
     width: 100%;
@@ -150,6 +154,12 @@
     background-color: white;
     padding: 0.5em 1.2em;
     height: 4em;
+    margin-bottom: 1em;
+}
+
+.preview-chat:hover {
+    background-color: rgb(173, 173, 173);
+    cursor: pointer;
 }
 
 .preview-chat-avatar {
@@ -163,6 +173,7 @@
 
 .preview-chat-name-message {
     width: 40%;
+    font-size: 0.8em;
     display: flex;
     flex-direction: column;
 }
@@ -194,6 +205,7 @@
 }
 
 /*CONTAINER-APP-CHAT*/
+/*CONTACT*/
 .contact {
     background-color: #eaeaea;
     display: flex;
@@ -239,37 +251,12 @@
     color: grey;
 }
 
+/*CHAT*/
 .chat {
     width: 100%;
     height: 490px;
     overflow: auto;
     background-image: url("../img/download.jpg");
-}
-
-.text-bar {
-    width: 100%;
-    max-width: 860px;
-    height: 56px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.text-bar i:first {
-    width: 10%;
-    color: grey;
-}
-
-.text-bar input {
-    width: 80%;
-    border-style: none;
-    outline: none;
-    background-color:#ffffff;
-}
-
-.text-bar i:last-child {
-    width: 10%;
 }
 
 .chat {
@@ -297,3 +284,29 @@
     background-color: white;
 }
 
+ /*TEXT-BAR*/
+.text-bar {
+    width: 100%;
+    max-width: 860px;
+    height: 56px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text-bar i:first {
+    width: 10%;
+    color: grey;
+}
+
+.text-bar input {
+    width: 80%;
+    border-style: none;
+    outline: none;
+    background-color:#ffffff;
+}
+
+.text-bar i:last-child {
+    width: 10%;
+}
