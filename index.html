@@ -40,22 +40,45 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input">
               </div>
 
-              <div class="preview-chat"  v-for="(contact, index) in contacts">
-                  <div class="preview-chat-avatar">
-                      <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
-                  </div>
-                  <div class="preview-chat-name-message">
-                      <span class="preview-chat-name">{{ contact.name }}</span>
-                      <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
-                  </div>
-                  <div class="preview-chat-date">
-                      <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
-                  </div>
+              <div class="box-chat">
+                <div class="preview-chat"  v-for="(contact, index) in contacts">
+                    <div class="preview-chat-avatar">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                    </div>
+                    <div class="preview-chat-name-message">
+                        <span class="preview-chat-name">{{ contact.name }}</span>
+                        <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
+                    </div>
+                    <div class="preview-chat-date">
+                        <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
+                    </div>
+                </div>
               </div>
           </div>
+
           <div class="container-app-chat">
-              <div class="contact">ciao</div>
-              <div class="chat">ciao</div>
+              <div class="contact">
+                  <div class="contact-avatar">
+                      <img src="img/avatar_3.jpg" alt="">
+                  </div>
+                  <div class="contact-text">
+                      <span class="contact-text-name">Samuele</span>
+                      <span class="contact-text-date">Ultimo accesso oggi alle 28/03/2020 16:15:22</span>
+                  </div>
+                  <div class="contact-icon">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </div>
+              </div>
+
+              <div class="chat">
+                  ciao
+              </div>
+
+              <div class="text-bar">
+                  ciao
+              </div>
           </div>  
         </div>
     </div>
