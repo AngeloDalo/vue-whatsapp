@@ -3,3 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container {
+    background: linear-gradient(to bottom, #009688 0%,#009688 30%, #009688 30%,#dbdbd2 30%,#dbdbd2 100%); /* W3C */
+    width: 100%;
+}
+
+.container-app {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    padding-top: 3em;
+}
+
+.container-app-users {
+    width: 30%;
+}
+
+.container-app-chat {
+    width: 70%;
+}
