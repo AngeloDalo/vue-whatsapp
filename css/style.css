@@ -8,6 +8,7 @@
     background: linear-gradient(to bottom, #009688 0%,#009688 30%, #009688 30%,#dbdbd2 30%,#dbdbd2 100%); /* W3C */
     width: 100%;
     height: 700px;
+    min-width: 927px;
 }
 
 .container-app {
@@ -195,6 +196,7 @@
     display: flex;
     align-items: center;
     height: 3em;
+    max-width: 860px;
 }
 
 .contact-avatar {
@@ -242,6 +244,7 @@
 
 .text-bar {
     width: 100%;
+    max-width: 860px;
     height: 56px;
     background-color: white;
     display: flex;
@@ -263,5 +266,30 @@
 
 .text-bar i:last-child {
     width: 10%;
+}
+
+.chat {
+    padding: 2em 3em;
+    max-width: 860px;
+}
+
+.my-message,
+.cpu-message {
+    width: 30%;
+    height: 2.5em;
+    border-radius: 10%;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-message {
+    background-color: #d5f9ba;
+}
+
+.cpu-message {
+    margin-left: calc(100% - 12em);
+    background-color: white;
 }
 
