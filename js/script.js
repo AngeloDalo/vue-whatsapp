@@ -54,7 +54,6 @@
                     },
                   ],
                 },
-              
                 {
                   name: "Samuele",
                   avatar: "_3",

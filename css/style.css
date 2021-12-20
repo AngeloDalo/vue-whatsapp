@@ -4,15 +4,27 @@
     box-sizing: border-box;
 }
 
+:root{
+    --grey-icon-over: rgb(77, 77, 77);
+    --top-background: #009688;
+    --bottom-background: #dbdbd2;
+    --profile: #eaeaea;
+    --profile-icons: #b1b1b1;
+    --notifications: #8edafc;
+    --chat-hover: rgb(173, 173, 173);
+    --my-message: #d5f9ba;
+}
+
 i:hover {
     cursor: pointer;
+    color: var(--grey-icon-over);
 }
 
 .container {
-    background: linear-gradient(to bottom, #009688 0%,#009688 30%, #009688 30%,#dbdbd2 30%,#dbdbd2 100%); /* W3C */
+    background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%); 
     width: 100%;
     height: 700px;
-    min-width: 927px;
+    min-width: 813px;
 }
 
 .container-app {
@@ -49,7 +61,7 @@ i:hover {
     align-items: center;
     height: 3em;
     padding: 0.3em;
-    background-color: #eaeaea;
+    background-color: var(--profile);
 }
 
 .my-profile-avatar {
@@ -67,7 +79,7 @@ i:hover {
 .my-profile-icons {
     display: flex;
     justify-content: flex-end;
-    color: #b1b1b1;
+    color: var(--profile-icons);
 }
 
 .my-profile-icons i {
@@ -86,7 +98,7 @@ i:hover {
 .notification-sound {
     display: flex;
     align-items: center;
-    background-color: #8edafc;
+    background-color: var(--notifications);
     height: 4em;
     padding: 0.5em;
 }
@@ -100,7 +112,7 @@ i:hover {
 }
 
 .campana {
-    color: #8edafc;
+    color: var(--notifications);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -138,7 +150,7 @@ i:hover {
 
 .search-users i {
     width: 10%;
-    color: #b1b1b1;
+    color: var(--profile-icons);
 }
 
 .search-users input {
@@ -158,7 +170,7 @@ i:hover {
 }
 
 .preview-chat:hover {
-    background-color: rgb(173, 173, 173);
+    background-color: var(--chat-hover);
     cursor: pointer;
 }
 
@@ -206,8 +218,12 @@ i:hover {
 
 /*CONTAINER-APP-CHAT*/
 /*CONTACT*/
+
+.container-app-chat {
+    min-width: 416px;
+}
 .contact {
-    background-color: #eaeaea;
+    background-color: var(--profile);
     display: flex;
     align-items: center;
     height: 3em;
@@ -248,7 +264,12 @@ i:hover {
 
 .contact-icon i {
     margin-right: 1em;
-    color: grey;
+    color: var(--profile-icons);
+}
+
+
+.contact-icon i:hover {
+    color: var(--grey-icon-over);
 }
 
 /*CHAT*/
@@ -276,7 +297,7 @@ i:hover {
 }
 
 .my-message {
-    background-color: #d5f9ba;
+    background-color: var(--my-message);
 }
 
 .cpu-message {
@@ -285,6 +306,7 @@ i:hover {
 }
 
  /*TEXT-BAR*/
+
 .text-bar {
     width: 100%;
     max-width: 860px;
@@ -297,7 +319,7 @@ i:hover {
 
 .text-bar i:first {
     width: 10%;
-    color: grey;
+    color: var(--profile-icons);
 }
 
 .text-bar input {
@@ -309,4 +331,9 @@ i:hover {
 
 .text-bar i:last-child {
     width: 10%;
+    color: var(--profile-icons);
+}
+
+.text-bar i:hover {
+    color: var(--grey-icon-over);
 }
