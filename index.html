@@ -40,16 +40,16 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input">
               </div>
 
-              <div class="preview-chat">
+              <div class="preview-chat"  v-for="(contact, index) in contacts">
                   <div class="preview-chat-avatar">
-                      <img src="img/avatar_1.jpg" alt="avatar">
+                      <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                   </div>
                   <div class="preview-chat-name-message">
-                      <span class="preview-chat-name">Michele</span>
-                      <span class="preview-chat-message">ok</span>
+                      <span class="preview-chat-name">{{ contact.name }}</span>
+                      <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
                   </div>
                   <div class="preview-chat-date">
-                      <span>20 12 2021 10:22:21</span>
+                      <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
                   </div>
               </div>
           </div>

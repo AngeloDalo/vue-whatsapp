@@ -18,6 +18,7 @@
 }
 
 .container-app-users {
+    min-width: 314px;
     width: 30%;
 }
 
