@@ -40,6 +40,7 @@
     display: flex;
     align-items: center;
     height: 3em;
+    background-color: #eaeaea;
 }
 
 .my-profile-avatar {
@@ -115,3 +116,24 @@
     color: grey;
     text-decoration: underline;
 }
+
+/*SEARCH USER*/
+.search-users {
+    display: flex;
+    padding: 0.5em 0em 0.5em 1.2em;
+    background-color: #ffffff;
+}
+
+.search-users i {
+    width: 10%;
+    color: #b1b1b1;
+}
+
+.search-users input {
+    width: 90%;
+    border-style: none;
+    outline: none;
+    background-color:#ffffff;
+}
+
+/*PREVIEW-CHAT*/
