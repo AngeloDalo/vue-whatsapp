@@ -33,3 +33,30 @@
 .chat {
     width: 100%;
 }
+
+.my-profile {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.my-profile-avatar {
+    width: 10%;
+}
+
+.my-profile-avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.my-profile-icons {
+    color: #b1b1b1;
+}
+
+.my-profile-name {
+    width: 60%;
+}
+
+.my-profile-icons {
+    width: 30%;
+}
