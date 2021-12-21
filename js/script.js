@@ -15,7 +15,7 @@
         el: '#app',
         data: {
             newMission: "",
-            valueChat: "",
+            valueChat: 2,
             contacts: [
                 {
                   name: "Michele",
@@ -106,7 +106,7 @@
         methods: {
           addChat: function(index) {
             this.valueChat = index;
-        } 
+          },
         }
     }
   );

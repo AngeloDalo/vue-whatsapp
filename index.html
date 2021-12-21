@@ -59,11 +59,11 @@
           <div class="container-app-chat">
               <div class="contact">
                   <div class="contact-avatar">
-                      <img :src="`img/avatar${contacts[2].avatar}.jpg`" alt="">
+                      <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
                   </div>
                   <div class="contact-text">
-                      <span class="contact-text-name"> {{ contacts[2].name }} </span>
-                      <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[2].messages[2].date }} </span>
+                      <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
+                      <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[1].date }} </span>
                   </div>
                   <div class="contact-icon">
                     <i class="fas fa-search"></i>
@@ -72,7 +72,7 @@
                 </div>
               </div>
 
-              <div class="chat" v-for="(contact, index) in contacts">
+              <div class="chat">
                   <div class="my-message">ciao</div>
                   <div class="cpu-message">ciao</div>
               </div>
