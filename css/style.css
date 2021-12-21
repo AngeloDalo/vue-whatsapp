@@ -168,7 +168,8 @@ i:hover {
     display: flex;
     background-color: white;
     padding: 0.5em 1.2em;
-    height: 4em;
+    min-height: 4em;
+    max-height: 100em;
     margin-bottom: 1em;
 }
 
@@ -182,7 +183,7 @@ i:hover {
 }
 
 .preview-chat-avatar img {
-    height: 100%;
+    height: 2.5em;
     border-radius: 50%;
 }
 
@@ -290,28 +291,31 @@ i:hover {
 .my-message,
 .cpu-message {
     width: 30%;
-    height: 3.5em;
-    max-height: 5em;
+    min-height: 3.5em;
+    max-height: 100em;
+    overflow: auto;
     border-radius: 10%;
     margin-bottom: 1em;
     padding-top: 0.3em;
     padding-left: 0.3em;
+    padding-bottom: 1em;
+    position: relative;
 }
 
-.chat div span:first-child {
+.chat div p:first-child {
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    height: 50%;
+    max-width: 100%;
+    height: 100%;
 }
 
-.chat div span:last-child {
+.chat div p:last-child {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
     width: 100%;
-    height: 50%;
     font-size: 0.7em;
     color: grey;
 }

@@ -74,8 +74,8 @@
 
               <div class="chat">
                   <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"> 
-                      <span>{{ contacts[valueChat].messages[i-1].text }}</span>
-                      <span>{{ contacts[valueChat].messages[i-1].date }}</span>
+                      <p>{{ contacts[valueChat].messages[i-1].text }}</p>
+                      <p>{{ contacts[valueChat].messages[i-1].date }}</p>
                   </div>
               </div>
 
