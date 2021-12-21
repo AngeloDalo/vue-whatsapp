@@ -23,7 +23,7 @@ i:hover {
 .container {
     background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%); 
     width: 100%;
-    height: 700px;
+    height: 100vh;
     min-width: 813px;
 }
 
@@ -278,7 +278,7 @@ i:hover {
     width: 100%;
     height: 490px;
     overflow: auto;
-    background-image: url("../img/download.jpg");
+    background-image: url("../img/mine.jpg");
 }
 
 .chat {
