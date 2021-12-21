@@ -73,8 +73,7 @@
               </div>
 
               <div class="chat">
-                  <div class="my-message">ciao</div>
-                  <div class="cpu-message">ciao</div>
+                  <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"> {{ contacts[valueChat].messages[i-1].text }} </div>
               </div>
 
               <div class="text-bar">
