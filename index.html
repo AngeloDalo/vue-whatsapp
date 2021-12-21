@@ -63,7 +63,7 @@
                   </div>
                   <div class="contact-text">
                       <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
-                      <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[1].date }} </span>
+                      <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
                   </div>
                   <div class="contact-icon">
                     <i class="fas fa-search"></i>
