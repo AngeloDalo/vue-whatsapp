@@ -21,8 +21,8 @@
         el: '#app',
         data: {
             newMission: "",
-            message: "",
-            valueChat: 2,
+            message: "", //messaggio che ho inserito io
+            valueChat: 2, //utente con il quale sto messaggiando
             contacts: [
                 {
                   name: "Michele",
@@ -111,10 +111,12 @@
         },
 
         methods: {
+          //vedere con quale utente sto messaggiando
           addChat: function(index) {
           this.valueChat = index;
         },
 
+          //miei messaggi con risposta del pc
           newChat: function() {
             if (this.message.length != 0) {
               let obj = {
