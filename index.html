@@ -13,86 +13,87 @@
 <body>
     <div class="container" id="app">
         <div class="container-app">
-          <div class="container-app-users">
-              <!--sezione profilo utente-->
-              <div class="my-profile">
-                  <div class="my-profile-avatar">
-                      <img src="img/avatar_io.jpg" alt="my-avatar">
-                  </div>
-                  <span class="my-profile-name">Nome Utente</span>
-                  <div class="my-profile-icons">
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment-alt"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                  </div>
-              </div>
-
-              <!--sezione notifiche campanella-->
-              <div class="notification-sound">
-                  <div class="icon-sound">
-                    <i class="fas fa-bell-slash campana"></i>
-                  </div>
-                  <div class="text-sound">
-                      <span class="text-sound-bold">Ricevi notifiche di nuovi messaggi</span>
-                      <span class="text-sound-underline">Attiva notiche desktop</span>
-                  </div>
-              </div>
-
-              <!--sezione per cercare utente specifico-->
-              <div class="search-users">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input">
-              </div>
-
-              <!--tutti i miei contatti con i quali ho conversato-->
-              <div class="box-chat">
-                <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)">
-                    <div class="preview-chat-avatar">
-                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+            <div class="container-app-users">
+                <!--sezione profilo utente-->
+                <div class="my-profile">
+                    <div class="my-profile-avatar">
+                        <img src="img/avatar_io.jpg" alt="my-avatar">
                     </div>
-                    <div class="preview-chat-name-message">
-                        <span class="preview-chat-name">{{ contact.name }}</span>
-                        <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
-                    </div>
-                    <div class="preview-chat-date">
-                        <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
+                    <span class="my-profile-name">Nome Utente</span>
+                    <div class="my-profile-icons">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-              </div>
-          </div>
 
-          <div class="container-app-chat">
-              <!--contatto con il quale sto messaggiando-->
-              <div class="contact">
-                  <div class="contact-avatar">
-                      <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
-                  </div>
-                  <div class="contact-text">
-                      <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
-                      <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
-                  </div>
-                  <div class="contact-icon">
+                <!--sezione notifiche campanella-->
+                <div class="notification-sound">
+                    <div class="icon-sound">
+                        <i class="fas fa-bell-slash campana"></i>
+                    </div>
+                    <div class="text-sound">
+                        <span class="text-sound-bold">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="text-sound-underline">Attiva notiche desktop</span>
+                    </div>
+                </div>
+
+                 <!--sezione per cercare utente specifico-->
+                <div class="search-users">
                     <i class="fas fa-search"></i>
-                    <i class="fas fa-paperclip"></i>
-                    <i class="fas fa-ellipsis-v"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" v-model="nameSearch">
                 </div>
-              </div>
 
-              <!--chat con contatto-->
-              <div class="chat">
-                  <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"> 
+                <!--tutti i miei contatti con i quali ho conversato-->
+                <div class="box-chat">
+                    <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)" v-show="contact.visible">
+                        <div class="preview-chat-avatar">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                        </div>
+                        <div class="preview-chat-name-message">
+                            <span class="preview-chat-name">{{ contact.name }}</span>
+                            <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
+                        </div>
+                        <div class="preview-chat-date">
+                            <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-app-chat">
+                <!--contatto con il quale sto messaggiando-->
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
+                        <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
+                    </div>
+                    <div class="contact-icon">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <!--chat con contatto-->
+                <div class="chat">
+                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"> 
                       <p>{{ contacts[valueChat].messages[i-1].text }}</p>
+                      <i class="fas fa-chevron-down"></i>
                       <p>{{ contacts[valueChat].messages[i-1].date }}</p>
-                  </div>
-              </div>
+                    </div>
+                </div>
 
-              <!--barra inserimento del testo-->
-              <div class="text-bar">
-                <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
-                <i class="fas fa-microphone"></i>
-              </div>
-          </div>  
+                <!--barra inserimento del testo-->
+                <div class="text-bar">
+                    <i class="far fa-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </div>  
         </div>
     </div>
     <script src="js/script.js"></script>

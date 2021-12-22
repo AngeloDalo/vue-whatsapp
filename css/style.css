@@ -300,13 +300,22 @@ i:hover {
     padding-left: 0.3em;
     padding-bottom: 1em;
     position: relative;
+    display: flex;
+    justify-content: space-around;
 }
 
 .chat div p:first-child {
     display: flex;
     justify-content: flex-start;
-    max-width: 100%;
+    max-width: 90%;
     height: 100%;
+    display: inline-block;
+}
+
+.fa-chevron-down {
+    display: inline;
+    color: grey;
+    width: 10%;
 }
 
 .chat div p:last-child {
