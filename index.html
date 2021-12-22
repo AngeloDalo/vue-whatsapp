@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="css/style.css">
+
     <title>Document</title>
 </head>
 <body>
@@ -81,7 +82,7 @@
 
               <div class="text-bar">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" class="message-input">
+                <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
                 <i class="fas fa-microphone"></i>
               </div>
           </div>  

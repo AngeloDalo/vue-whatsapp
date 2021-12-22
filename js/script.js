@@ -10,11 +10,18 @@
   Click sul contatto mostra la conversazione del contatto cliccato
  */
 
+/**
+ * Milestone 3
+  Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+  Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo
+ */
+
  const app = new Vue(
     {
         el: '#app',
         data: {
             newMission: "",
+            message: "",
             valueChat: 2,
             contacts: [
                 {
@@ -105,8 +112,30 @@
 
         methods: {
           addChat: function(index) {
-            this.valueChat = index;
+          this.valueChat = index;
+        },
+
+          newChat: function() {
+            if (this.message.length != 0) {
+              let obj = {
+                  date: "10/01/2020 16:50:00",
+                  text: this.message,
+                  status: "sent"
+              }
+                  this.contacts[this.valueChat].messages.push(obj);
+                  this.message = "";
+
+                  let obj2 = {
+                    date: "10/01/2020 16:50:00",
+                    text: "ok",
+                    status: "received"
+                  }
+                  
+                  setTimeout(()=>{ 
+                    console.log("ciao");
+                    this.contacts[this.valueChat].messages.push(obj2);  
+                  }, 1000);
+            }
           },
         }
-    }
-  );
+      });
