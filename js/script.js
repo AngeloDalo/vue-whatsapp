@@ -42,19 +42,30 @@
                   contatore: 0,
                   messages: [
                     {
+                      visible: false, //messaggio "falso" per permettere eliminazione dell'ultimo messaggio dalla chat
+                                      //questo messaggio comunque non verrò conteggiato
+                    },
+                    {
                       date: "10/01/2020 15:30:55",
                       text: "Hai portato a spasso il cane?",
                       status: "sent",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "10/01/2020 15:50:00",
                       text: "Ricordati di dargli da mangiare",
                       status: "sent",
+                      option: false,
+                      visible: true,
+
                     },
                     {
                       date: "10/01/2020 16:15:22",
                       text: "Tutto fatto!",
                       status: "received",
+                      option: false,
+                      visible: true,
                     },
                   ],
                 },
@@ -65,19 +76,28 @@
                   contatore: 0,
                   messages: [
                     {
+                      visible: false,
+                    },
+                    {
                       date: "20/03/2020 16:30:00",
                       text: "Ciao come stai?",
                       status: "sent",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "20/03/2020 16:30:55",
                       text: "Bene grazie! Stasera ci vediamo?",
                       status: "received",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "20/03/2020 16:35:00",
                       text: "Mi piacerebbe ma devo andare a fare la spesa.",
                       status: "sent",
+                      option: false,
+                      visible: true,
                     },
                   ],
                 },
@@ -88,19 +108,28 @@
                   contatore: 0,
                   messages: [
                     {
+                      visible: false,
+                    },
+                    {
                       date: "28/03/2020 10:10:40",
                       text: "La Marianna va in campagna",
                       status: "received",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "28/03/2020 10:20:10",
                       text: "Sicuro di non aver sbagliato chat?",
                       status: "sent",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "28/03/2020 16:15:22",
                       text: "Ah scusa!",
                       status: "received",
+                      option: false,
+                      visible: true,
                     },
                   ],
                 },
@@ -111,14 +140,21 @@
                   contatore: 0,
                   messages: [
                     {
+                      visible: false,
+                    },
+                    {
                       date: "10/01/2020 15:30:55",
                       text: "Lo sai che ha aperto una nuova pizzeria?",
                       status: "sent",
+                      option: false,
+                      visible: true,
                     },
                     {
                       date: "10/01/2020 15:50:00",
                       text: "Si, ma preferirei andare al cinema",
                       status: "received",
+                      option: false,
+                      visible: true,
                     },
                   ],
                 },
@@ -137,7 +173,9 @@
               let obj = {
                   date: "10/01/2020 16:50:00",
                   text: this.message,
-                  status: "sent"
+                  status: "sent",
+                  option: false,
+                  visible: true,
               }
                   this.contacts[this.valueChat].messages.push(obj);
                   this.message = "";
@@ -145,7 +183,9 @@
                   let obj2 = {
                     date: "10/01/2020 16:50:00",
                     text: "ok",
-                    status: "received"
+                    status: "received",
+                    option: false,
+                    visible: true,
                   }
                   
                   setTimeout(()=>{ 
@@ -179,5 +219,21 @@
               }
             }
           },
+
+          //vengono passati il numero della chat e il numero del messaggio
+          //campo oprion diventa true quando freccia viene cliccata facendo vedere button 
+          showOption: function (chat, numero) {
+            if (this.contacts[numero].messages[chat].option == false) {
+              this.contacts[numero].messages[chat].option = true;
+            } else {
+              this.contacts[numero].messages[chat].option = false;
+            }
+          },
+
+          //eliminazione del messaggio selezionato
+          delateMessage: function (chat, numero) {
+            console.log(chat, numero);
+            this.contacts[numero].messages.splice(chat, 1);
+          }
         }
       });

@@ -79,10 +79,18 @@
                 </div>
 
                 <!--chat con contatto-->
-                <div class="chat">
-                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"> 
+                <!--nel caso in cui non ci sono messaggi mostrare schermata vuota-->
+                <div v-else class="chat" v-if="contacts[valueChat].messages.length-1 == 0"></div>
+
+                <div class="chat" v-else>
+                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"  v-show="contacts[valueChat].messages[i-1].visible"> 
                       <p>{{ contacts[valueChat].messages[i-1].text }}</p>
-                      <i class="fas fa-chevron-down"></i>
+                      <i class="fas fa-chevron-down" v-show="!(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
+                      <i class="fas fa-chevron-up" v-show="(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
+                      <div class="option-message" v-show="contacts[valueChat].messages[i-1].option">
+                          <button  v-show="contacts[valueChat].messages[i-1].option">Message info</button>
+                          <button  v-show="contacts[valueChat].messages[i-1].option" @click="delateMessage(i-1, valueChat)">Delate message</button>
+                      </div>
                       <p>{{ contacts[valueChat].messages[i-1].date }}</p>
                     </div>
                 </div>

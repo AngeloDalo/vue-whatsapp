@@ -293,7 +293,6 @@ i:hover {
     width: 30%;
     min-height: 3.5em;
     max-height: 100em;
-    overflow: auto;
     border-radius: 10%;
     margin-bottom: 1em;
     padding-top: 0.3em;
@@ -302,6 +301,23 @@ i:hover {
     position: relative;
     display: flex;
     justify-content: space-around;
+    position: relative;
+}
+
+.option-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0.5em;
+    top: 1.2em;
+    width: 80%;
+    z-index: 1;
+}
+
+.option-message button {
+    cursor: pointer;
+    padding: 1em;
+    border: none;
 }
 
 .chat div p:first-child {
@@ -313,6 +329,12 @@ i:hover {
 }
 
 .fa-chevron-down {
+    display: inline;
+    color: grey;
+    width: 10%;
+}
+
+.fa-chevron-up {
     display: inline;
     color: grey;
     width: 10%;
