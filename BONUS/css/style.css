@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --grey-icon-over: rgb(77, 77, 77);
+    --top-background: #009688;
+    --bottom-background: #dbdbd2;
+    --profile: #eaeaea;
+    --profile-icons: #b1b1b1;
+    --notifications: #8edafc;
+    --chat-hover: rgb(173, 173, 173);
+    --my-message: #d5f9ba;
+}
+
+i:hover {
+    cursor: pointer;
+    color: var(--grey-icon-over);
+}
+
+.container {
+    background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%); 
+    width: 100%;
+    height: 100vh;
+    min-width: 813px;
+    min-height: 633px;
+}
+
+.container-app {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    padding-top: 1.5em;
+}
+
+.container-app-users {
+    min-width: 314px;
+    width: 30%;
+}
+
+.container-app-chat {
+    width: 70%;
+}
+
+.my-profile,
+.notification-sound,
+.search-users,
+.preview-chat,
+.contact,
+.chat {
+    width: 100%;
+}
+
+/*CONTAINER APP USER*/
+/*MY PROFILE*/
+.my-profile {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 3em;
+    padding: 0.3em;
+    background-color: var(--profile);
+}
+
+.my-profile-avatar {
+    width: 10%;
+    height: 100%;
+    margin-right: 0.5em;
+}
+
+.my-profile-avatar img {
+    height: 100%;
+    max-height: 3em;
+    border-radius: 50%;
+}
+
+.my-profile-icons {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--profile-icons);
+}
+
+.my-profile-icons i {
+    margin-right: 0.7em;
+}
+
+.my-profile-name {
+    width: 60%;
+}
+
+.my-profile-icons {
+    width: 30%;
+}
+
+/*NOTIFICATION SOUND*/
+.notification-sound {
+    display: flex;
+    align-items: center;
+    background-color: var(--notifications);
+    height: 4em;
+    padding: 0.5em;
+}
+
+.icon-sound {
+    width: 15%;
+    height: 100%;
+    max-width: 3em;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.campana {
+    color: var(--notifications);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.text-sound {
+    width: 85%;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-sound-bold,
+.text-sound-underline {
+    font-size: 0.7em;
+    width: 100%;
+}
+
+.text-sound-bold {
+    font-weight: bold;
+}
+
+.text-sound-underline {
+    color: grey;
+    text-decoration: underline;
+}
+
+/*SEARCH USER*/
+.search-users {
+    display: flex;
+    padding: 0.5em 0em 0.5em 1.2em;
+    background-color: #ffffff;
+}
+
+.search-users i {
+    width: 10%;
+    color: var(--profile-icons);
+}
+
+.search-users input {
+    width: 90%;
+    border-style: none;
+    outline: none;
+    background-color:#ffffff;
+}
+
+/*PREVIEW-CHAT*/
+.preview-chat {
+    display: flex;
+    background-color: white;
+    padding: 0.5em 1.2em;
+    min-height: 4em;
+    max-height: 100em;
+    margin-bottom: 1em;
+}
+
+.preview-chat:hover {
+    background-color: var(--chat-hover);
+    cursor: pointer;
+}
+
+.preview-chat-avatar {
+    width: 20%;
+}
+
+.preview-chat-avatar img {
+    height: 2.5em;
+    border-radius: 50%;
+}
+
+.preview-chat-name-message {
+    width: 40%;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-chat-name {
+    font-weight: bold;
+}
+
+.preview-chat-message {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.preview-chat-date {
+    width: 40%;
+}
+
+.preview-chat-date span {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.box-chat {
+    overflow-y: auto;
+    height: calc(100% - 145px);
+    width: 100%;
+    background-color: white;
+}
+
+/*CONTAINER-APP-CHAT*/
+/*CONTACT*/
+
+.container-app-chat {
+    min-width: 416px;
+}
+.contact {
+    background-color: var(--profile);
+    display: flex;
+    align-items: center;
+    height: 3em;
+    padding: 0.3em;
+    max-width: 860px;
+}
+
+.contact-avatar {
+    width: 10%;
+    height: 100%;
+}
+
+.contact-avatar img {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contact-text {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-text-name {
+    font-weight: bold;
+}
+
+.contact-text-date {
+    color: grey;
+    font-size: 0.7em;
+}
+
+.contact-icon {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contact-icon i {
+    margin-right: 1em;
+    color: var(--profile-icons);
+}
+
+
+.contact-icon i:hover {
+    color: var(--grey-icon-over);
+}
+
+/*CHAT*/
+.chat {
+    width: 100%;
+    height: calc(100% - 105px);
+    overflow: auto;
+    background-image: url("../img/mine.jpg");
+}
+
+.chat {
+    padding: 2em 3em;
+    max-width: 860px;
+}
+
+.my-message,
+.cpu-message {
+    width: 30%;
+    min-height: 3.5em;
+    max-height: 100em;
+    border-radius: 10%;
+    margin-bottom: 1em;
+    padding-top: 0.3em;
+    padding-left: 0.3em;
+    padding-bottom: 1em;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.option-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0.5em;
+    top: 1.2em;
+    width: 80%;
+    z-index: 1;
+}
+
+.option-message button {
+    cursor: pointer;
+    padding: 1em;
+    border: none;
+}
+
+.chat div p:first-child {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 90%;
+    height: 100%;
+    display: inline-block;
+}
+
+.fa-chevron-down {
+    display: inline;
+    color: grey;
+    width: 10%;
+}
+
+.fa-chevron-up {
+    display: inline;
+    color: grey;
+    width: 10%;
+}
+
+.chat div p:last-child {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 0.7em;
+    color: grey;
+}
+
+.my-message {
+    background-color: var(--my-message);
+}
+
+.cpu-message {
+    margin-left: calc(100% - 12em);
+    background-color: white;
+}
+
+ /*TEXT-BAR*/
+.text-bar {
+    width: 100%;
+    max-width: 860px;
+    height: 56px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text-bar i:first {
+    width: 10%;
+    color: var(--profile-icons);
+}
+
+.text-bar input {
+    width: 80%;
+    border-style: none;
+    outline: none;
+    background-color:#ffffff;
+}
+
+.text-bar i:last-child {
+    width: 10%;
+    color: var(--profile-icons);
+}
+
+.text-bar i:hover {
+    color: var(--grey-icon-over);
+}

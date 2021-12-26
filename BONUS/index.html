@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/whatsapp--v6.png">
+    <title>Boolzapp</title>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="container-app">
+            <div class="container-app-users">
+                <!--sezione profilo utente-->
+                <div class="my-profile">
+                    <div class="my-profile-avatar">
+                        <img src="img/avatar_io.jpg" alt="my-avatar">
+                    </div>
+                    <span class="my-profile-name">Nome Utente</span>
+                    <div class="my-profile-icons">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <!--sezione notifiche campanella-->
+                <div class="notification-sound">
+                    <div class="icon-sound">
+                        <i class="fas fa-bell-slash campana"></i>
+                    </div>
+                    <div class="text-sound">
+                        <span class="text-sound-bold">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="text-sound-underline">Attiva notiche desktop</span>
+                    </div>
+                </div>
+
+                 <!--sezione per cercare utente specifico-->
+                <div class="search-users">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" v-model="nameSearch">
+                </div>
+
+                <!--tutti i miei contatti con i quali ho conversato-->
+                <div class="box-chat">
+                    <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)" v-show="contact.visible">
+                        <div class="preview-chat-avatar">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                        </div>
+                        <div class="preview-chat-name-message">
+                            <span class="preview-chat-name">{{ contact.name }}</span>
+                            <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
+                        </div>
+                        <div class="preview-chat-date">
+                            <span>{{ contact.messages[contact.messages.length - 1].date }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-app-chat">
+                <!--contatto con il quale sto messaggiando-->
+                <div class="contact">
+                    <div class="contact-avatar">
+                        <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
+                    </div>
+                    <div class="contact-text">
+                        <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
+                        <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
+                    </div>
+                    <div class="contact-icon">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <!--chat con contatto-->
+                <!--nel caso in cui non ci sono messaggi mostrare schermata vuota-->
+                <div v-else class="chat" v-if="contacts[valueChat].messages.length-1 == 0"></div>
+
+                <div class="chat" v-else>
+                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"  v-show="contacts[valueChat].messages[i-1].visible"> 
+                      <p>{{ contacts[valueChat].messages[i-1].text }}</p>
+                      <i class="fas fa-chevron-down" v-show="!(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
+                      <i class="fas fa-chevron-up" v-show="(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
+                      <div class="option-message" v-show="contacts[valueChat].messages[i-1].option">
+                          <button  v-show="contacts[valueChat].messages[i-1].option">Message info</button>
+                          <button  v-show="contacts[valueChat].messages[i-1].option" @click="delateMessage(i-1, valueChat)">Delate message</button>
+                      </div>
+                      <p>{{ contacts[valueChat].messages[i-1].date }}</p>
+                    </div>
+                </div>
+
+                <!--barra inserimento del testo-->
+                <div class="text-bar">
+                    <i class="far fa-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
