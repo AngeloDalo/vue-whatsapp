@@ -20,6 +20,14 @@ i:hover {
     color: var(--grey-icon-over);
 }
 
+.none {
+    display: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
 .container {
     background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%); 
     width: 100%;
@@ -383,9 +391,11 @@ i:hover {
     background-color:#ffffff;
 }
 
-.text-bar i:last-child {
+.text-bar .fa-microphone,
+.text-bar .fa-telegram-plane{
     width: 10%;
     color: var(--profile-icons);
+    font-size: 1.3em;
 }
 
 .text-bar i:hover {

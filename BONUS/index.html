@@ -99,7 +99,8 @@
                 <div class="text-bar">
                     <i class="far fa-smile"></i>
                     <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-microphone" :class="(message.length != 0) ? 'none' : 'inline-block'"></i>
+                    <i class="fab fa-telegram-plane" :class="(message.length != 0) ? 'inline-block' : 'none'" @click="newChat"></i>
                 </div>
             </div>  
         </div>
