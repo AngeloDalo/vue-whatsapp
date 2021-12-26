@@ -174,7 +174,7 @@
 
           //miei messaggi con risposta del pc
           newChat: function() {
-            if (this.message.length != 0) {
+            if (this.message.trim().length != 0) {
               let obj = {
                   date: "10/01/2020 16:50:00",
                   text: this.message,
