@@ -35,8 +35,16 @@
  * A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono. B) inviare quindi il messaggio anche cliccando sull'icona dell'aeroplano
  */
 
+/**
+ * BONUS 3
+ * predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc risponde, anziché scrivere "ok", scegliere una frase random dalla lista e utilizzarla come testo del messaggio di risposta del pc
+ */
 
- const app = new Vue(
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+ 
+const app = new Vue(
     {
         el: '#app',
         data: {
@@ -44,6 +52,7 @@
             message: "", //messaggio che ho inserito io
             valueChat: 2, //utente con il quale sto messaggiando
             nameSearch: "",
+            randomMessage: ["ok", "va bene", "non ti preoccupare", "anche a te e famiglia", "auguri", "usciamo?", "molto probabilmente", "buon Natale", "ti devo dire una cosa", "sto uscendo", "ci vediamo", "a dopo", "non sono a casa"],
             contacts: [
                 {
                   name: "Michele",
@@ -174,8 +183,8 @@
         methods: {
           //vedere con quale utente sto messaggiando
           addChat: function(index) {
-          this.valueChat = index;
-        },
+            this.valueChat = index;
+          },
 
           //miei messaggi con risposta del pc
           newChat: function() {
@@ -192,7 +201,7 @@
 
                   let obj2 = {
                     date: "10/01/2020 16:50:00",
-                    text: "ok",
+                    text: this.randomMessage[getRndInteger(0, this.randomMessage.length-1)],
                     status: "received",
                     option: false,
                     visible: true,
