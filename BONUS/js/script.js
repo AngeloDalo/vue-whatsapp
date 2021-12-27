@@ -50,10 +50,39 @@
  * inserire l'orario corretto nei messaggi 
  */
 
+/**
+ * BONUS 6
+ * sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato: visualizzare il testo "sta scrivendo..." nel timeout in cui il pc risponde, poi mantenere la scritta "online" per un paio di secondi e infine visualizzare "ultimo accesso alle xx:yy" con l'orario corretto
+ */
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
- 
+
+//prendo nel html ultimo accesso e lo cambio in sta scrivendo e online
+//faccio return dell'orario dell'ultimo messaggio
+//devo cambiare orario dell'utlimo accesso che sarà diverso dall'orario del messaggio
+function getData(chat) {
+  today = new Date();
+  const elementDx = document.querySelector('.contact-text-date');
+  const elementSx = document.querySelectorAll('.status-chat-sx');
+
+  setTimeout(function(){ 
+    elementDx.innerHTML = "sta scrivendo...";
+    elementSx[chat].innerHTML = "sta scrivendo...";
+  }, 0);
+  setTimeout(function(){ 
+    elementDx.innerHTML = "online";
+    elementSx[chat].innerHTML = "online";
+  }, 2000);
+  setTimeout(function(){ 
+    today = new Date();
+    elementDx.innerHTML = "Ultimo accesso oggi alle " + today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    elementSx[chat].innerHTML = today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  }, 8000);
+  return today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+}
+
 const app = new Vue(
     {
         el: '#app',
@@ -211,7 +240,7 @@ const app = new Vue(
                   this.message = "";
 
                   let obj2 = {
-                    date: today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+                    date: getData(this.valueChat), //devo generare sta scrivendo, online, ora messaggio e ultimo accesso
                     text: this.randomMessage[getRndInteger(0, this.randomMessage.length-1)],
                     status: "received",
                     option: false,
