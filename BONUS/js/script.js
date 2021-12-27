@@ -199,10 +199,9 @@ const app = new Vue(
           //miei messaggi con risposta del pc
           newChat: function() {
             today = new Date();
-            dateMessage = today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             if (this.message.trim().length != 0) {
               let obj = {
-                  date: dateMessage,
+                  date: today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
                   text: this.message,
                   status: "sent",
                   option: false,
@@ -212,7 +211,7 @@ const app = new Vue(
                   this.message = "";
 
                   let obj2 = {
-                    date: dateMessage,
+                    date: today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
                     text: this.randomMessage[getRndInteger(0, this.randomMessage.length-1)],
                     status: "received",
                     option: false,
