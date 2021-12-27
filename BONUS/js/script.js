@@ -45,6 +45,11 @@
  * visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
  */
 
+/**
+ * BONUS 5
+ * inserire l'orario corretto nei messaggi 
+ */
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -193,9 +198,11 @@ const app = new Vue(
 
           //miei messaggi con risposta del pc
           newChat: function() {
+            today = new Date();
+            dateMessage = today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             if (this.message.trim().length != 0) {
               let obj = {
-                  date: "10/01/2020 16:50:00",
+                  date: dateMessage,
                   text: this.message,
                   status: "sent",
                   option: false,
@@ -205,7 +212,7 @@ const app = new Vue(
                   this.message = "";
 
                   let obj2 = {
-                    date: "10/01/2020 16:50:00",
+                    date: dateMessage,
                     text: this.randomMessage[getRndInteger(0, this.randomMessage.length-1)],
                     status: "received",
                     option: false,
