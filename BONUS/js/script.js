@@ -103,6 +103,7 @@ const app = new Vue(
                   avatar: "_1",
                   visible: true,
                   contatore: 0,
+                  delate: false,
                   messages: [
                     {
                       visible: false, //messaggio "falso" per permettere eliminazione dell'ultimo messaggio dalla chat
@@ -136,6 +137,7 @@ const app = new Vue(
                   name: "Fabio",
                   avatar: "_2",
                   visible: true,
+                  delate: false,
                   contatore: 0,
                   messages: [
                     {
@@ -168,6 +170,7 @@ const app = new Vue(
                   name: "Samuele",
                   avatar: "_3",
                   visible: true,
+                  delate: false,
                   contatore: 0,
                   messages: [
                     {
@@ -200,6 +203,7 @@ const app = new Vue(
                   name: "Luisa",
                   avatar: "_4",
                   visible: true,
+                  delate: false,
                   contatore: 0,
                   messages: [
                     {
@@ -297,6 +301,19 @@ const app = new Vue(
           //eliminazione del messaggio selezionato
           delateMessage: function (chat, numero) {
             this.contacts[numero].messages.splice(chat, 1);
+          },
+
+          //mostra opzioni per eliminare messaggi o chat
+          showDelateOption: function (valueChat) {
+            if (this.contacts[valueChat].delate == false) {
+              this.contacts[valueChat].delate = true;
+            } else {
+              this.contacts[valueChat].delate = false;
+            }
+          },
+
+          delateAllMessages: function (valueChat) {
+            this.contacts[valueChat].messages.splice(1, this.contacts[valueChat].messages.length - 1);
           }
         }
       });

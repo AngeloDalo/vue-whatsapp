@@ -271,6 +271,7 @@ i:hover {
     width: 20%;
     display: flex;
     justify-content: flex-end;
+    position: relative;
 }
 
 .contact-icon i {
@@ -281,6 +282,22 @@ i:hover {
 
 .contact-icon i:hover {
     color: var(--grey-icon-over);
+}
+
+.option-delate-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0.5em;
+    top: 1.2em;
+    width: 100%;
+    z-index: 1;
+}
+
+.option-delate-message button {
+    cursor: pointer;
+    padding: 1em;
+    border: none;
 }
 
 /*CHAT*/

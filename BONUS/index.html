@@ -74,7 +74,11 @@
                     <div class="contact-icon">
                         <i class="fas fa-search"></i>
                         <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v" @click="showDelateOption(valueChat)"></i>
+                        <div class="option-delate-message" v-show="contacts[valueChat].delate">
+                            <button v-show="contacts[valueChat].delate" @click="delateAllMessages(valueChat)">Elimina messaggi</button>
+                            <button v-show="contacts[valueChat].delate" @click="delateChat(valueChat)">Elimina chat</button>
+                        </div>
                     </div>
                 </div>
 
