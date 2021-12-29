@@ -46,7 +46,7 @@
 
                 <!--tutti i miei contatti con i quali ho conversato-->
                 <div class="box-chat">
-                    <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)" v-show="contact.visible">
+                    <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)">
                         <div class="preview-chat-avatar">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                         </div>

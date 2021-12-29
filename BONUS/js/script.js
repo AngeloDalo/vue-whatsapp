@@ -312,8 +312,14 @@ const app = new Vue(
             }
           },
 
+          //elimina tutti i messaggi di una specifica chat
           delateAllMessages: function (valueChat) {
             this.contacts[valueChat].messages.splice(1, this.contacts[valueChat].messages.length - 1);
+          },
+
+          //elimina intera chat
+          delateChat: function (valueChat) {
+            this.contacts.splice(valueChat, 1);
           }
         }
       });
