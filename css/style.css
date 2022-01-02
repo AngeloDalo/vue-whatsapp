@@ -58,7 +58,6 @@ i:hover {
 /*CONTAINER APP USER*/
 /*MY PROFILE*/
 .my-profile {
-    font-weight: bold;
     display: flex;
     align-items: center;
     height: 3em;

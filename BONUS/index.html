@@ -11,19 +11,19 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div class="container" id="app">
+    <div class="container" :class="(light == 1) ? 'container-light' : 'container-dark'" id="app">
         <div class="container-app">
-            <div class="container-app-users">
+            <div class="container-app-users"> 
                 <!--sezione profilo utente-->
-                <div class="my-profile">
-                    <div class="my-profile-avatar">
-                        <img src="img/avatar_io.jpg" alt="my-avatar">
+                <div class="my-profile" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(light == 1) ? 'bold-text' : 'white-text'">
+                    <div class="my-profile-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                        <img src="img/avatar_io.jpg" alt="my-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                     </div>
-                    <span class="my-profile-name">Nome Utente</span>
-                    <div class="my-profile-icons">
-                        <i class="fas fa-circle-notch"></i>
-                        <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                    <span class="my-profile-name" :class="(light == 1) ? 'bg-white bold-text' : 'bg-dark white-text'">Nome Utente</span>
+                    <div class="my-profile-icons" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                        <i class="fas fa-circle-notch" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
+                        <i class="fas fa-comment-alt" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
+                        <i class="fas fa-ellipsis-v" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
                     </div>
                 </div>
 
@@ -33,25 +33,25 @@
                         <i class="fas fa-bell-slash campana"></i>
                     </div>
                     <div class="text-sound">
-                        <span class="text-sound-bold">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="text-sound-bold bold-text">Ricevi notifiche di nuovi messaggi</span>
                         <span class="text-sound-underline">Attiva notiche desktop</span>
                     </div>
                 </div>
 
                  <!--sezione per cercare utente specifico-->
-                <div class="search-users">
+                <div class="search-users" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" v-model="nameSearch">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="nameSearch">
                 </div>
 
                 <!--tutti i miei contatti con i quali ho conversato-->
-                <div class="box-chat">
-                    <div class="preview-chat"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)">
+                <div class="box-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                    <div class="preview-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)">
                         <div class="preview-chat-avatar">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                         </div>
                         <div class="preview-chat-name-message">
-                            <span class="preview-chat-name">{{ contact.name }}</span>
+                            <span class="preview-chat-name" :class="(light == 1) ? 'bold-text' : 'white-text'">{{ contact.name }}</span>
                             <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
                         </div>
                         <div class="preview-chat-date">
@@ -64,20 +64,21 @@
             <div class="container-app-chat">
                 <!--contatto con il quale sto messaggiando-->
                 <div class="contact">
-                    <div class="contact-avatar">
+                    <div class="contact-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                         <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
                     </div>
-                    <div class="contact-text">
-                        <span class="contact-text-name"> {{ contacts[valueChat].name }} </span>
+                    <div class="contact-text" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                        <span class="contact-text-name" :class="(light == 1) ? 'bold-text' : 'white-text'"> {{ contacts[valueChat].name }} </span>
                         <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
                     </div>
-                    <div class="contact-icon">
-                        <i class="fas fa-search"></i>
-                        <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-ellipsis-v" @click="showDelateOption(valueChat)"></i>
+                    <div class="contact-icon"  :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                        <i class="fas fa-search" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
+                        <i class="fas fa-paperclip" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
+                        <i class="fas fa-ellipsis-v" :class="(light == 1) ? 'bg-white' : 'bg-dark'" @click="showDelateOption(valueChat)"></i>
                         <div class="option-delate-message" v-show="contacts[valueChat].delate">
                             <button v-show="contacts[valueChat].delate" @click="delateAllMessages(valueChat)">Elimina messaggi</button>
                             <button v-show="contacts[valueChat].delate" @click="delateChat(valueChat)">Elimina chat</button>
+                            <button v-show="contacts[valueChat].delate" @click="darkLight()">Dark/Light</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +87,7 @@
                 <!--nel caso in cui non ci sono messaggi mostrare schermata vuota-->
                 <div v-else class="chat" v-if="contacts[valueChat].messages.length-1 == 0"></div>
 
-                <div class="chat" v-else>
+                <div class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" v-else>
                     <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"  v-show="contacts[valueChat].messages[i-1].visible"> 
                       <p>{{ contacts[valueChat].messages[i-1].text }}</p>
                       <i class="fas fa-chevron-down" v-show="!(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
@@ -101,9 +102,9 @@
 
                 <!--barra inserimento del testo-->
                 <!--microfono cambiato in aeroplano quando inserisci inserisci messaggio-->
-                <div class="text-bar">
-                    <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" v-model="message" @keyup.enter="newChat">
+                <div class="text-bar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                    <i class="far fa-smile grey-text"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="message" @keyup.enter="newChat">
                     <i class="fas fa-microphone" :class="(message.length != 0) ? 'none' : 'inline-block'"></i>
                     <i class="fab fa-telegram-plane" :class="(message.length != 0) ? 'inline-block' : 'none'" @click="newChat"></i>
                 </div>

@@ -7,6 +7,7 @@
 :root{
     --grey-icon-over: rgb(77, 77, 77);
     --top-background: #009688;
+    --blue: #0c0036;
     --bottom-background: #dbdbd2;
     --profile: #eaeaea;
     --profile-icons: #b1b1b1;
@@ -20,6 +21,26 @@ i:hover {
     color: var(--grey-icon-over);
 }
 
+.bg-white {
+    background-color: white;
+}
+
+.bg-dark {
+    background-color: black;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.white-text {
+    color: white;
+}
+
+.grey-text {
+    color: grey;
+}
+
 .none {
     display: none;
 }
@@ -28,8 +49,15 @@ i:hover {
     display: inline-block;
 }
 
-.container {
-    background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%); 
+.container-light {
+    background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%);
+}
+
+.container-dark {
+    background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--blue) 30%, var(--blue) 100%); 
+}
+
+.container { 
     width: 100%;
     height: 100vh;
     min-width: 813px;
@@ -66,12 +94,16 @@ i:hover {
 /*CONTAINER APP USER*/
 /*MY PROFILE*/
 .my-profile {
-    font-weight: bold;
     display: flex;
     align-items: center;
     height: 3em;
-    padding: 0.3em;
-    background-color: var(--profile);
+}
+
+.my-profile-name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
 }
 
 .my-profile-avatar {
@@ -87,7 +119,9 @@ i:hover {
 }
 
 .my-profile-icons {
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
     color: var(--profile-icons);
 }
@@ -143,10 +177,6 @@ i:hover {
     width: 100%;
 }
 
-.text-sound-bold {
-    font-weight: bold;
-}
-
 .text-sound-underline {
     color: grey;
     text-decoration: underline;
@@ -156,7 +186,6 @@ i:hover {
 .search-users {
     display: flex;
     padding: 0.5em 0em 0.5em 1.2em;
-    background-color: #ffffff;
 }
 
 .search-users i {
@@ -168,13 +197,11 @@ i:hover {
     width: 90%;
     border-style: none;
     outline: none;
-    background-color:#ffffff;
 }
 
 /*PREVIEW-CHAT*/
 .preview-chat {
     display: flex;
-    background-color: white;
     padding: 0.5em 1.2em;
     min-height: 4em;
     max-height: 100em;
@@ -202,10 +229,6 @@ i:hover {
     flex-direction: column;
 }
 
-.preview-chat-name {
-    font-weight: bold;
-}
-
 .preview-chat-message {
     color: grey;
     font-size: 0.8em;
@@ -224,12 +247,10 @@ i:hover {
     overflow-y: auto;
     height: calc(100% - 145px);
     width: 100%;
-    background-color: white;
 }
 
 /*CONTAINER-APP-CHAT*/
 /*CONTACT*/
-
 .container-app-chat {
     min-width: 416px;
 }
@@ -238,7 +259,6 @@ i:hover {
     display: flex;
     align-items: center;
     height: 3em;
-    padding: 0.3em;
     max-width: 860px;
 }
 
@@ -254,12 +274,10 @@ i:hover {
 
 .contact-text {
     width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.contact-text-name {
-    font-weight: bold;
+    justify-content: center;
 }
 
 .contact-text-date {
@@ -269,12 +287,16 @@ i:hover {
 
 .contact-icon {
     width: 20%;
+    height: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     position: relative;
 }
 
 .contact-icon i {
+    line-height: 3em;
+    height: 100%;
     margin-right: 1em;
     color: var(--profile-icons);
 }
@@ -289,7 +311,7 @@ i:hover {
     display: flex;
     flex-direction: column;
     right: 0.5em;
-    top: 1.2em;
+    top: 2em;
     width: 100%;
     z-index: 1;
 }
@@ -301,11 +323,19 @@ i:hover {
 }
 
 /*CHAT*/
+.chat-light {
+    background-image: url("../img/mine.jpg");
+}
+
+.chat-dark {
+    background-image: url("../img/dark.jpg");
+    background-size: contain;
+}
+
 .chat {
     width: 100%;
     height: calc(100% - 105px);
     overflow: auto;
-    background-image: url("../img/mine.jpg");
 }
 
 .chat {
@@ -390,7 +420,6 @@ i:hover {
     width: 100%;
     max-width: 860px;
     height: 56px;
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -405,7 +434,6 @@ i:hover {
     width: 80%;
     border-style: none;
     outline: none;
-    background-color:#ffffff;
 }
 
 .text-bar .fa-microphone,

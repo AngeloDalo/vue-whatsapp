@@ -60,6 +60,11 @@
  * dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
  */
 
+/**
+ * BONUS 8
+ * aggiungere un'icona per cambiare la modalità light/dark
+ */
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -96,6 +101,7 @@ const app = new Vue(
             message: "", //messaggio che ho inserito io
             valueChat: 2, //utente con il quale sto messaggiando
             nameSearch: "",
+            light: 1,
             randomMessage: ["ok", "va bene", "non ti preoccupare", "anche a te e famiglia", "auguri", "usciamo?", "molto probabilmente", "buon Natale", "ti devo dire una cosa", "sto uscendo", "ci vediamo", "a dopo", "non sono a casa"],
             contacts: [
                 {
@@ -320,6 +326,15 @@ const app = new Vue(
           //elimina intera chat
           delateChat: function (valueChat) {
             this.contacts.splice(valueChat, 1);
-          }
+          },
+
+          //modalità notte o giorno
+          darkLight: function () {
+            if (this.light == 1) {
+              this.light = 0;
+            } else {
+              this.light = 1;
+            }
+          },
         }
       });
