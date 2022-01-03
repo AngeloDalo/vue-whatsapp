@@ -83,6 +83,7 @@ function getData(chat) {
   const elementDx = document.querySelector('.contact-text-date');
   const elementSx = document.querySelectorAll('.status-chat-sx');
 
+  //istruzioni dopo che l'utente invia un messaggio randomico
   setTimeout(function(){ 
     elementDx.innerHTML = "sta scrivendo...";
     elementSx[chat].innerHTML = "sta scrivendo...";
@@ -251,6 +252,7 @@ const app = new Vue(
           newChat: function() {
             today = new Date();
             if (this.message.trim().length != 0) {
+              //messaggio inviato
               let obj = {
                   date: today.getDate() + "/" + (today.getMonth() + 1) + "/" + (today.getYear() + 1900) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
                   text: this.message,
@@ -261,6 +263,7 @@ const app = new Vue(
                   this.contacts[this.valueChat].messages.push(obj);
                   this.message = "";
 
+                  //messaggio randomico ricevuto
                   let obj2 = {
                     date: getData(this.valueChat), //devo generare sta scrivendo, online, ora messaggio e ultimo accesso
                     text: this.randomMessage[getRndInteger(0, this.randomMessage.length-1)],
