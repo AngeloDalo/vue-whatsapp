@@ -11,7 +11,9 @@
     <title>Boolzapp</title>
 </head>
 <body>
+    <!--container applicazione-->
     <div class="container" :class="(light == 1) ? 'container-light' : 'container-dark'" id="app">
+        <!--container qunado applicazione è chiusa-->
         <div class="container-splash" :class="(splash == 0) ? 'none' : 'display-block'">
             <img :class="(splash == 0) ? 'none' : 'display-block'" src="img/35C31E91-7A2F-4CEA-A56A-27B98FA06097.png" alt="logo">
         </div>
@@ -19,7 +21,7 @@
             <button :class="(splash == 0) ? 'none' : 'display-block'" class="myButton" @click="optionSplash()">Apri BoolZapp</button>
         </div>
 
-
+       <!--container quando applicazione è aperta--> 
         <div class="container-app">
             <div class="container-app-users" :class="(splash == 1) ? 'none' : 'display-block'"> 
                 <!--sezione profilo utente-->
