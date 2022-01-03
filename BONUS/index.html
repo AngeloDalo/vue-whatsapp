@@ -12,8 +12,16 @@
 </head>
 <body>
     <div class="container" :class="(light == 1) ? 'container-light' : 'container-dark'" id="app">
+        <div class="container-splash" :class="(splash == 0) ? 'none' : 'display-block'">
+            <img :class="(splash == 0) ? 'none' : 'display-block'" src="img/35C31E91-7A2F-4CEA-A56A-27B98FA06097.png" alt="logo">
+        </div>
+        <div class="openButton">
+            <button :class="(splash == 0) ? 'none' : 'display-block'" class="myButton" @click="optionSplash()">Apri BoolZapp</button>
+        </div>
+
+
         <div class="container-app">
-            <div class="container-app-users"> 
+            <div class="container-app-users" :class="(splash == 1) ? 'none' : 'display-block'"> 
                 <!--sezione profilo utente-->
                 <div class="my-profile" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(light == 1) ? 'bold-text' : 'white-text'">
                     <div class="my-profile-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
@@ -28,7 +36,7 @@
                 </div>
 
                 <!--sezione notifiche campanella-->
-                <div class="notification-sound">
+                <div class="notification-sound" :class="(splash == 1) ? 'none' : 'display-block'">
                     <div class="icon-sound">
                         <i class="fas fa-bell-slash campana"></i>
                     </div>
@@ -39,13 +47,13 @@
                 </div>
 
                  <!--sezione per cercare utente specifico-->
-                <div class="search-users" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                <div class="search-users" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="nameSearch">
                 </div>
 
                 <!--tutti i miei contatti con i quali ho conversato-->
-                <div class="box-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                <div class="box-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
                     <div class="preview-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)">
                         <div class="preview-chat-avatar">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
@@ -61,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="container-app-chat">
+            <div class="container-app-chat" :class="(splash == 1) ? 'none' : 'display-block'">
                 <!--contatto con il quale sto messaggiando-->
                 <div class="contact">
                     <div class="contact-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
@@ -79,15 +87,16 @@
                             <button v-show="contacts[valueChat].delate" @click="delateAllMessages(valueChat)">Elimina messaggi</button>
                             <button v-show="contacts[valueChat].delate" @click="delateChat(valueChat)">Elimina chat</button>
                             <button v-show="contacts[valueChat].delate" @click="darkLight()">Dark/Light</button>
+                            <button v-show="contacts[valueChat].delate" @click="optionSplash()">Chiudi BoolZapp</button>
                         </div>
                     </div>
                 </div>
 
                 <!--chat con contatto-->
                 <!--nel caso in cui non ci sono messaggi mostrare schermata vuota-->
-                <div v-else class="chat" v-if="contacts[valueChat].messages.length-1 == 0"></div>
+                <div v-else class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" v-if="contacts[valueChat].messages.length-1 == 0" :class="(splash == 1) ? 'none' : 'display-block'"></div>
 
-                <div class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" v-else>
+                <div class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" :class="(splash == 1) ? 'none' : 'display-block'" v-else>
                     <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"  v-show="contacts[valueChat].messages[i-1].visible"> 
                       <p>{{ contacts[valueChat].messages[i-1].text }}</p>
                       <i class="fas fa-chevron-down" v-show="!(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
@@ -102,7 +111,7 @@
 
                 <!--barra inserimento del testo-->
                 <!--microfono cambiato in aeroplano quando inserisci inserisci messaggio-->
-                <div class="text-bar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
+                <div class="text-bar" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
                     <i class="far fa-smile grey-text"></i>
                     <input type="text" placeholder="Scrivi un messaggio" class="message-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="message" @keyup.enter="newChat">
                     <i class="fas fa-microphone" :class="(message.length != 0) ? 'none' : 'inline-block'"></i>

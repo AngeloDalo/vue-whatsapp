@@ -65,6 +65,12 @@
  * aggiungere un'icona per cambiare la modalità light/dark
  */
 
+/**
+ * BONUS 9
+ * //bonus cambiato. Problema nell'automatizzare comandi senza azioni
+ * aggiungere una splash page visibile per 1s all'apertura dell'app
+ */
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -99,9 +105,10 @@ const app = new Vue(
         data: {
             newMission: "",
             message: "", //messaggio che ho inserito io
-            valueChat: 2, //utente con il quale sto messaggiando
+            valueChat: 0, //utente con il quale sto messaggiando
             nameSearch: "",
-            light: 1,
+            splash: 1, //apertura e chiusura dell'app
+            light: 1, //controllo modalità light o dark
             randomMessage: ["ok", "va bene", "non ti preoccupare", "anche a te e famiglia", "auguri", "usciamo?", "molto probabilmente", "buon Natale", "ti devo dire una cosa", "sto uscendo", "ci vediamo", "a dopo", "non sono a casa"],
             contacts: [
                 {
@@ -334,6 +341,19 @@ const app = new Vue(
               this.light = 0;
             } else {
               this.light = 1;
+            }
+          },
+
+          //apertura e chiusura dell'app cambiando la variabile spash
+          optionSplash: function  () {
+            if (this.splash == 1) {
+              setTimeout(()=>{ 
+                this.splash = 0; 
+              }, 1000);
+            } else {
+              setTimeout(()=>{ 
+                this.splash = 1; 
+              }, 1000);
             }
           },
         }

@@ -49,6 +49,47 @@ i:hover {
     display: inline-block;
 }
 
+.display-block {
+    display: block;
+}
+
+.container-splash,
+.openButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.myButton {
+	box-shadow: 1px 1px 17px 2px #3dc21b;
+	background:linear-gradient(to bottom, #49bd68 5%, #4fe300 100%);
+	background-color:#49bd68;
+	border-radius:42px;
+	border:3px solid #000000;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	padding:10px 37px;
+	text-decoration:none;
+	text-shadow:2px 2px 0px #2f6627;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #4fe300 5%, #49bd68 100%);
+	background-color:#4fe300;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.container-splash img {
+    width: 30%;
+    max-width: 360px;
+    margin-top: 5%;
+}
+
 .container-light {
     background: linear-gradient(to bottom, var(--top-background) 0%,var(--top-background) 30%, var(--top-background) 30%, var(--bottom-background) 30%, var(--bottom-background) 100%);
 }
