@@ -71,6 +71,11 @@
  * aggiungere una splash page visibile per 1s all'apertura dell'app
  */
 
+/**
+ * BONUS 10
+ * aggiungere un'icona per ingrandire o rimpicciolire il font
+ */
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -110,6 +115,9 @@ const app = new Vue(
             nameSearch: "",
             splash: 1, //apertura e chiusura dell'app
             light: 1, //controllo modalità light o dark
+            small: 0, //caratteri piccoli
+            normal: 1, //caratteri medi
+            big: 0, //caratteri grandi
             randomMessage: ["ok", "va bene", "non ti preoccupare", "anche a te e famiglia", "auguri", "usciamo?", "molto probabilmente", "buon Natale", "ti devo dire una cosa", "sto uscendo", "ci vediamo", "a dopo", "non sono a casa"],
             contacts: [
                 {
@@ -359,5 +367,23 @@ const app = new Vue(
               }, 1000);
             }
           },
+
+          smallText: function () {
+            this.small = 1;
+            this.normal = 0;
+            this.big = 0;
+          },
+
+          mediumText: function () {
+            this.small = 0;
+            this.normal = 1;
+            this.big = 0;
+          },
+
+          bigText: function () {
+            this.small = 0;
+            this.normal = 0;
+            this.big = 1;
+          }
         }
       });

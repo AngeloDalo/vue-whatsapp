@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/whatsapp--v6.png">
+    <link rel="icon" type="image/x-icon" href="img/35c31e91_7a2f_4cea_a56a_27b98fa06097_MZo_icon.ico">
     <title>Boolzapp</title>
 </head>
 <body>
@@ -29,7 +29,7 @@
                     <div class="my-profile-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                         <img src="img/avatar_io.jpg" alt="my-avatar" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                     </div>
-                    <span class="my-profile-name" :class="(light == 1) ? 'bg-white bold-text' : 'bg-dark white-text'">Nome Utente</span>
+                    <span class="my-profile-name" :class="[(light == 1) ? 'bg-white bold-text' : 'bg-dark white-text', (normal == 1 && big == 0 && small == 0) ? 'fs-1' : (normal == 0 && big == 0 && small == 1) ? 'fs-08' : (normal == 0 && big == 1 && small == 0) ? 'fs-12' : '']" >Nome Utente</span>
                     <div class="my-profile-icons" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                         <i class="fas fa-circle-notch" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
                         <i class="fas fa-comment-alt" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
@@ -43,15 +43,15 @@
                         <i class="fas fa-bell-slash campana"></i>
                     </div>
                     <div class="text-sound">
-                        <span class="text-sound-bold bold-text">Ricevi notifiche di nuovi messaggi</span>
-                        <span class="text-sound-underline">Attiva notiche desktop</span>
+                        <span class="text-sound-bold bold-text" :class="(normal == 1 && big == 0 && small == 0) ? 'fs-08' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-1' : ''">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="text-sound-underline" :class="(normal == 1 && big == 0 && small == 0) ? 'fs-08' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-1' : ''">Attiva notiche desktop</span>
                     </div>
                 </div>
 
                  <!--sezione per cercare utente specifico-->
                 <div class="search-users" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="nameSearch">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="text-input" :class="[(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text', (normal == 1 && big == 0 && small == 0) ? 'fs-08' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-1' : '']" v-model="nameSearch">
                 </div>
 
                 <!--tutti i miei contatti con i quali ho conversato-->
@@ -60,12 +60,12 @@
                         <div class="preview-chat-avatar">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                         </div>
-                        <div class="preview-chat-name-message">
-                            <span class="preview-chat-name" :class="(light == 1) ? 'bold-text' : 'white-text'">{{ contact.name }}</span>
-                            <span class="preview-chat-message">{{ contact.messages[contact.messages.length - 1].text }}</span>
+                        <div class="preview-chat-name-message fs-08">
+                            <span class="preview-chat-name" :class="[(light == 1) ? 'bold-text' : 'white-text', (normal == 1 && big == 0 && small == 0) ? 'fs-1' : (normal == 0 && big == 0 && small == 1) ? 'fs-08' : (normal == 0 && big == 1 && small == 0) ? 'fs-12' : '']">{{ contact.name }}</span>
+                            <span class="preview-chat-message fs-08" :class="(normal == 1 && big == 0 && small == 0) ? 'fs-08' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-1' : ''">{{ contact.messages[contact.messages.length - 1].text }}</span>
                         </div>
                         <div class="preview-chat-date">
-                            <span class="status-chat-sx">{{ contact.messages[contact.messages.length - 1].date }}</span>
+                            <span class="status-chat-sx" :class="(normal == 1 && big == 0 && small == 0) ? 'fs-08' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-1' : ''">{{ contact.messages[contact.messages.length - 1].date }}</span>
                         </div>
                     </div>
                 </div>
@@ -78,8 +78,8 @@
                         <img :src="`img/avatar${contacts[valueChat].avatar}.jpg`" alt="">
                     </div>
                     <div class="contact-text" :class="(light == 1) ? 'bg-white' : 'bg-dark'">
-                        <span class="contact-text-name" :class="(light == 1) ? 'bold-text' : 'white-text'"> {{ contacts[valueChat].name }} </span>
-                        <span class="contact-text-date"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
+                        <span class="contact-text-name" :class="[(light == 1) ? 'bold-text' : 'white-text', (normal == 1 && big == 0 && small == 0) ? 'fs-1' : (normal == 0 && big == 0 && small == 1) ? 'fs-08' : (normal == 0 && big == 1 && small == 0) ? 'fs-12' : '']"> {{ contacts[valueChat].name }} </span>
+                        <span class="contact-text-date fs-07" :class="(normal == 1 && big == 0 && small == 0) ? 'fs-07' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-09' : ''"> Ultimo accesso oggi alle {{ contacts[valueChat].messages[contacts[valueChat].messages.length - 1].date }} </span>
                     </div>
                     <div class="contact-icon"  :class="(light == 1) ? 'bg-white' : 'bg-dark'">
                         <i class="fas fa-search" :class="(light == 1) ? 'bg-white' : 'bg-dark'"></i>
@@ -90,6 +90,9 @@
                             <button v-show="contacts[valueChat].delate" @click="delateChat(valueChat)">Elimina chat</button>
                             <button v-show="contacts[valueChat].delate" @click="darkLight()">Dark/Light</button>
                             <button v-show="contacts[valueChat].delate" @click="optionSplash()">Chiudi BoolZapp</button>
+                            <button v-show="contacts[valueChat].delate" @click="smallText()"><i class="fas fa-search-minus"></i> Small</button>
+                            <button v-show="contacts[valueChat].delate" @click="mediumText()"><i class="fas fa-search"></i> Normal</button>
+                            <button v-show="contacts[valueChat].delate" @click="bigText()"><i class="fas fa-search-plus"></i> Big</button>
                         </div>
                     </div>
                 </div>
@@ -99,15 +102,15 @@
                 <div v-else class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" v-if="contacts[valueChat].messages.length-1 == 0" :class="(splash == 1) ? 'none' : 'display-block'"></div>
 
                 <div class="chat" :class="(light == 1) ? 'chat-light' : 'chat-dark'" :class="(splash == 1) ? 'none' : 'display-block'" v-else>
-                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'"  v-show="contacts[valueChat].messages[i-1].visible"> 
-                      <p>{{ contacts[valueChat].messages[i-1].text }}</p>
+                    <div v-for="(i, index) in contacts[valueChat].messages.length " :class="(contacts[valueChat].messages[i-1].status == 'received') ? 'my-message' : 'cpu-message'" v-show="contacts[valueChat].messages[i-1].visible"> 
+                      <p :class="(normal == 1 && big == 0 && small == 0) ? 'fs-1' : (normal == 0 && big == 0 && small == 1) ? 'fs-08' : (normal == 0 && big == 1 && small == 0) ? 'fs-12' : ''">{{ contacts[valueChat].messages[i-1].text }}</p>
                       <i class="fas fa-chevron-down" v-show="!(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
                       <i class="fas fa-chevron-up" v-show="(contacts[valueChat].messages[i-1].option)" @click="showOption(i-1, valueChat)"></i>
                       <div class="option-message" v-show="contacts[valueChat].messages[i-1].option">
                           <button  v-show="contacts[valueChat].messages[i-1].option">Message info</button>
                           <button  v-show="contacts[valueChat].messages[i-1].option" @click="delateMessage(i-1, valueChat)">Delate message</button>
                       </div>
-                      <p>{{ contacts[valueChat].messages[i-1].date }}</p>
+                      <p :class="(normal == 1 && big == 0 && small == 0) ? 'fs-07' : (normal == 0 && big == 0 && small == 1) ? 'fs-06' : (normal == 0 && big == 1 && small == 0) ? 'fs-09' : ''">{{ contacts[valueChat].messages[i-1].date }}</p>
                     </div>
                 </div>
 
@@ -115,9 +118,9 @@
                 <!--microfono cambiato in aeroplano quando inserisci inserisci messaggio-->
                 <div class="text-bar" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
                     <i class="far fa-smile grey-text"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" :class="(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text'" v-model="message" @keyup.enter="newChat">
-                    <i class="fas fa-microphone" :class="(message.length != 0) ? 'none' : 'inline-block'"></i>
-                    <i class="fab fa-telegram-plane" :class="(message.length != 0) ? 'inline-block' : 'none'" @click="newChat"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" class="message-input" :class="[(light == 1) ? 'bg-white grey-text' : 'bg-dark white-text', (normal == 1 && big == 0 && small == 0) ? 'fs-1' : (normal == 0 && big == 0 && small == 1) ? 'fs-08' : (normal == 0 && big == 1 && small == 0) ? 'fs-12' : '']" v-model="message" @keyup.enter="newChat">
+                    <i class="fas fa-microphone fs-13" :class="(message.length != 0) ? 'none' : 'inline-block'"></i>
+                    <i class="fab fa-telegram-plane fs-13" :class="(message.length != 0) ? 'inline-block' : 'none'" @click="newChat"></i>
                 </div>
             </div>  
         </div>

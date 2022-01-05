@@ -16,6 +16,42 @@
     --my-message: #d5f9ba;
 }
 
+.fs-06 {
+    font-size: 0.6em;
+}
+
+.fs-07 {
+    font-size: 0.7em;
+}
+
+.fs-08 {
+    font-size: 0.8em;
+}
+
+.fs-09 {
+    font-size: 0.9em;
+}
+
+.fs-1 {
+    font-size: 1em;
+}
+
+.fs-11 {
+    font-size: 1.1em;
+}
+
+.fs-12 {
+    font-size: 1.2em;
+}
+
+.fs-13 {
+    font-size: 1.3em;
+}
+
+.fs-14 {
+    font-size: 1.4em;
+}
+
 i:hover {
     cursor: pointer;
     color: var(--grey-icon-over);
@@ -84,6 +120,7 @@ i:hover {
 	top:1px;
 }
 
+/*container*/
 .container-splash img {
     width: 30%;
     max-width: 360px;
@@ -214,7 +251,6 @@ i:hover {
 
 .text-sound-bold,
 .text-sound-underline {
-    font-size: 0.7em;
     width: 100%;
 }
 
@@ -265,14 +301,12 @@ i:hover {
 
 .preview-chat-name-message {
     width: 40%;
-    font-size: 0.8em;
     display: flex;
     flex-direction: column;
 }
 
 .preview-chat-message {
     color: grey;
-    font-size: 0.8em;
 }
 
 .preview-chat-date {
@@ -281,7 +315,6 @@ i:hover {
 
 .preview-chat-date span {
     color: grey;
-    font-size: 0.8em;
 }
 
 .box-chat {
@@ -323,7 +356,6 @@ i:hover {
 
 .contact-text-date {
     color: grey;
-    font-size: 0.7em;
 }
 
 .contact-icon {
@@ -443,7 +475,6 @@ i:hover {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    font-size: 0.7em;
     color: grey;
 }
 
@@ -481,7 +512,6 @@ i:hover {
 .text-bar .fa-telegram-plane{
     width: 10%;
     color: var(--profile-icons);
-    font-size: 1.3em;
 }
 
 .text-bar i:hover {
