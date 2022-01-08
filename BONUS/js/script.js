@@ -305,7 +305,7 @@ const app = new Vue(
                 } else {
                   this.contacts[i].contatore += 1;
                 }
-                if (y == this.contacts[i].contactore) {
+                if (y == this.contacts[i].contatore) {
                   this.contacts[i].visible = true;
                 }
               }

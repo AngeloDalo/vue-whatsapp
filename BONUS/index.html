@@ -17,6 +17,7 @@
         <div class="container-splash" :class="(splash == 0) ? 'none' : 'display-block'">
             <img :class="(splash == 0) ? 'none' : 'display-block'" src="img/35C31E91-7A2F-4CEA-A56A-27B98FA06097.png" alt="logo">
         </div>
+        <!--apertura della-->
         <div class="openButton">
             <button :class="(splash == 0) ? 'none' : 'display-block'" class="myButton" @click="optionSplash()">Apri BoolZapp</button>
         </div>
@@ -56,7 +57,7 @@
 
                 <!--tutti i miei contatti con i quali ho conversato-->
                 <div class="box-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'" :class="(splash == 1) ? 'none' : 'display-block'">
-                    <div class="preview-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)">
+                    <div class="preview-chat" :class="(light == 1) ? 'bg-white' : 'bg-dark'"  v-for="(contact, index) in contacts" @click="addChat(index)" v-bind="search(nameSearch)" v-show="contact.visible"> 
                         <div class="preview-chat-avatar">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                         </div>
