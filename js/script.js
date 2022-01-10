@@ -39,7 +39,6 @@
                   name: "Michele",
                   avatar: "_1",
                   visible: true,
-                  contatore: 0,
                   messages: [
                     {
                       visible: false, //messaggio "falso" per permettere eliminazione dell'ultimo messaggio dalla chat
@@ -73,7 +72,6 @@
                   name: "Fabio",
                   avatar: "_2",
                   visible: true,
-                  contatore: 0,
                   messages: [
                     {
                       visible: false,
@@ -105,7 +103,6 @@
                   name: "Samuele",
                   avatar: "_3",
                   visible: true,
-                  contatore: 0,
                   messages: [
                     {
                       visible: false,
@@ -137,7 +134,6 @@
                   name: "Luisa",
                   avatar: "_4",
                   visible: true,
-                  contatore: 0,
                   messages: [
                     {
                       visible: false,
@@ -195,29 +191,14 @@
           },
 
           //ricerca in base al nome
-          //contatore 0 permette di vedere di base tutti anche se scrivimo nome e cancelliamo tutto
-          //nome scritto nel modo corretto, parte dall'inizio
-          search: function (name) {
-            if (name.length == 0) {
-              for (let i=0; i<=this.contacts.length-1; i++) {
-                this.contacts[i].visible = true;
-                this.contacts[i].contatore = 0;
+          search: function (nameUser) {
+            this.contacts.forEach (element => {
+              if (element.name.toLowerCase().includes(nameUser)) {
+                 element.visible = true;
+              } else {
+                 element.visible = false;
               }
-            }
-            //se il contatore è uguale alla vairbile y vuol dire che il nome inserito è presente nella lista
-            for (let i=0; i<=3; i++) {
-              for (let y=0; y<name.length - 1; y++) {
-                if (name[y] != this.contacts[i].name[y]) {
-                  this.contacts[i].contatore = 0;
-                  this.contacts[i].visible = false;
-                } else {
-                  this.contacts[i].contatore += 1;
-                }
-                if (y == this.contacts[i].contatore) {
-                  this.contacts[i].visible = true;
-                }
-              }
-            }
+             });
           },
 
           //vengono passati il numero della chat e il numero del messaggio

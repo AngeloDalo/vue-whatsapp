@@ -213,7 +213,7 @@ i:hover {
 
 .box-chat {
     overflow-y: auto;
-    height: calc(100% - 145px);
+    height: calc(100% - 230px);
     width: 100%;
     background-color: white;
 }
@@ -277,7 +277,7 @@ i:hover {
 /*CHAT*/
 .chat {
     width: 100%;
-    height: calc(100% - 105px);
+    height: calc(100% - 190px);
     overflow: auto;
     background-image: url("../img/mine.jpg");
 }
